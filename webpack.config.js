@@ -1,6 +1,7 @@
 /* global __dirname, require, module */
 const webpack = require('webpack');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const DefinePlugin = webpack.DefinePlugin;
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 
@@ -9,8 +10,13 @@ const libraryName = 'redux-modal';
 const plugins = [];
 
 if (env === 'build') {
+  plugins.push(new DefinePlugin({
+    'process.env': {
+      'NODE_ENV': JSON.stringify('production')
+    }
+  }));
   plugins.push(new UglifyJsPlugin({
-    minimize: false
+    minimize: true
   }));
   outputFile = libraryName + '.js';
 } else {
