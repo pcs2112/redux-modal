@@ -30,8 +30,7 @@ const config = {
     path: __dirname + '/lib',
     filename: outputFile,
     library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -51,7 +50,15 @@ const config = {
     modules: [path.resolve('./node_modules'), path.resolve('./src')],
     extensions: ['.json', '.js']
   },
-  plugins: plugins
+  plugins: plugins,
+  externals: [
+    'prop-types',
+    'react',
+    'react-dom',
+    'react-redux',
+    'redux',
+    'warning'
+  ]
 };
 
 module.exports = config;
