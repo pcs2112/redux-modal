@@ -16,20 +16,13 @@
     "Webpack",
     "es6"
   ],
-  "main": "./lib/redux-modal.js",
+  "main": "./lib/index.js",
   "scripts": {
-    "build": "webpack --env build",
-    "dev": "webpack --progress --colors --watch --env dev",
-    "test": "mocha --compilers js:babel-core/register --colors ./test/*.spec.js",
-    "test:watch": "mocha --compilers js:babel-core/register --colors -w ./test/*.spec.js"
+    "build": "npm run build:lib",
+    "build:lib": "babel src --out-dir lib"
   },
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.0.0",
-    "react-redux": "^4.4.5",
-    "redux": "^3.0.4",
-    "warning": "^2.1.0"
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "babel-cli": "6.24.1",
@@ -48,7 +41,10 @@
     "eslint-plugin-import": "^0.8.0",
     "eslint-plugin-react": "^3.5.0",
     "mocha": "3.3.0",
-    "webpack": "^2.2.1",
-    "yargs": "7.1.0"
+    "react": "^15.5.4",
+    "react-dom": "^15.0.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.0.4",
+    "webpack": "^2.2.1"
   }
 }
