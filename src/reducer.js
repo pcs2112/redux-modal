@@ -1,6 +1,6 @@
 import { SHOW_MODAL, HIDE_MODAL } from './actions';
 
-export default function(state = {}, action = {}) {
+export default (state = {}, action = {}) => {
   switch (action.type) {
     case SHOW_MODAL:
       return {
@@ -15,5 +15,5 @@ export default function(state = {}, action = {}) {
       };
     default:
       return state;
-    }
+  }
 };
