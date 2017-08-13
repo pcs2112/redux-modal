@@ -29,7 +29,6 @@
     "react-addons-shallow-compare": "^15.5.2",
     "react-dom": "^15.0.0",
     "redux": "^3.0.4",
-    "redux-connect": "^5.1.0",
     "warning": "^2.1.0"
   },
   "devDependencies": {
