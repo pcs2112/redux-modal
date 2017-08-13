@@ -16,7 +16,7 @@
     "Webpack",
     "es6"
   ],
-  "main": "./lib/index.js",
+  "main": "./lib/redux-modal.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",

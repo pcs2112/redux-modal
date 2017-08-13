@@ -3,15 +3,18 @@ const webpack = require('webpack');
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
-;
-const plugins = [];
+
 let outputFile;
+const libraryName = 'redux-modal';
+const plugins = [];
 
 if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
-  outputFile = 'index.js';
+  plugins.push(new UglifyJsPlugin({
+    minimize: false
+  }));
+  outputFile = libraryName + '.js';
 } else {
-  outputFile = 'index.js';
+  outputFile = libraryName + '.js';
 }
 
 const config = {
@@ -19,7 +22,10 @@ const config = {
   devtool: 'source-map',
   output: {
     path: __dirname + '/lib',
-    filename: outputFile
+    filename: outputFile,
+    library: libraryName,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   module: {
     rules: [
