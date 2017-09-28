@@ -6,9 +6,9 @@
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Storeable/redux-modal"
+    "url": "https://github.com/pcs2112/redux-modal"
   },
-  "homepage": "https://github.com/Storeable/redux-modal",
+  "homepage": "https://github.com/pcs2112/redux-modal",
   "keywords": [
     "Redux",
     "React",
