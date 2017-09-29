@@ -8,11 +8,12 @@ import { getDisplayName } from './utils';
  * HOC to connect modals to the state.
  *
  * @param {Object} WrappedComponent
+ * @param {String} stateName
  * @param {Function|null|undefined} mapStateToProps
  * @param {Function|null|undefined} mapDispatchToProps
  * @returns {WithConnectedModal}
  */
-export default (WrappedComponent, mapStateToProps = null, mapDispatchToProps = null) => {
+export default (WrappedComponent, stateName, mapStateToProps = null, mapDispatchToProps = null) => {
   class WithConnectedModal extends Component {
     static propTypes = {
       name: PropTypes.string.isRequired,
@@ -34,7 +35,7 @@ export default (WrappedComponent, mapStateToProps = null, mapDispatchToProps = n
 
   return connect(
     (state, ownProps) => Object.assign({}, {
-      open: state.modals.modalName === ownProps.name
+      open: state[stateName].modalName === ownProps.name
     }, mapStateToProps ? mapStateToProps(state, ownProps) : {}),
     (dispatch, ownProps) => Object.assign({}, {
       showModal: () => {
