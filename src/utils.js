@@ -5,7 +5,7 @@
  * @param {Array} argNames - Argument names used by the action
  */
 export const createAction = (type, ...argNames) => (...args) => {
-  const action = Array.isArray(type) ? { types: [ ...type ] } : { type };
+  const action = Array.isArray(type) ? { types: [...type] } : { type };
   argNames.forEach((arg, index) => {
     action[argNames[index]] = args[index];
   });
@@ -19,5 +19,5 @@ export const createAction = (type, ...argNames) => (...args) => {
  * @param {Object} WrappedComponent
  * @returns {String}
  */
-export const getDisplayName = (WrappedComponent) =>
+export const getDisplayName = WrappedComponent =>
   WrappedComponent.displayName || WrappedComponent.name || 'Component';

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { showModal, hideModal } from './actions';
@@ -14,22 +14,18 @@ import { getDisplayName } from './utils';
  * @returns {WithConnectedModal}
  */
 export default (WrappedComponent, stateName, mapStateToProps = null, mapDispatchToProps = null) => {
-  class WithConnectedModal extends Component {
-    static propTypes = {
-      name: PropTypes.string.isRequired,
-      open: PropTypes.bool.isRequired,
-      showModal: PropTypes.func.isRequired,
-      onClose: PropTypes.func.isRequired
-    }
+  const WithConnectedModal = props => (
+    <WrappedComponent
+      {...props}
+    />
+  );
 
-    render() {
-      return (
-        <WrappedComponent
-          {...this.props}
-        />
-      );
-    }
-  }
+  WithConnectedModal.propTypes = {
+    name: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
+    showModal: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
+  };
 
   WithConnectedModal.displayName = `WithConnectedModal(${getDisplayName(WrappedComponent)})`;
 
